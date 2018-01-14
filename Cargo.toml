@@ -1,0 +1,6 @@
+[package]
+name = "connect_four"
+version = "0.1.0"
+authors = ["lafaillette <quentin.pergeline@gmail.com>"]
+
+[dependencies]
