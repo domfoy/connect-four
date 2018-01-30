@@ -3,8 +3,8 @@ use std::fmt;
 #[derive(Debug)]
 #[derive(PartialEq)]
 pub(in game) enum Colour {
+  Red,
   Blue,
-  Red
 }
 impl fmt::Display for Colour{
   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

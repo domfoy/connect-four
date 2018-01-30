@@ -4,7 +4,6 @@ mod board;
 
 use std::fmt;
 
-
 use self::colour::Colour;
 use self::board::Board;
 

@@ -8,7 +8,7 @@ use std::ptr;
 use super::cell::Cell;
 
 #[derive(Debug)]
-pub(in game) struct Board([[Cell; BOARD_HEIGHT]; BOARD_WIDTH]);
+pub(in game) struct Board([[Cell; BOARD_WIDTH]; BOARD_HEIGHT]);
 
 macro_rules! make_array {
   ($n:expr, $constructor:expr) => {{
@@ -20,7 +20,7 @@ macro_rules! make_array {
   }}
 }
 
-impl fmt::Display for Board{
+impl fmt::Display for Board {
   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
     let &Board(ref s) = self;
 
@@ -38,19 +38,25 @@ impl fmt::Display for Board{
 impl Board {
   pub fn new() -> Self {
     Board(unsafe {
-      make_array!(BOARD_WIDTH, || make_array!(BOARD_HEIGHT, || Cell::new()))
+      make_array!(BOARD_HEIGHT, || make_array!(BOARD_WIDTH, || Cell::new()))
     })
   }
 
-  pub fn get_available_columns(&self) -> Vec<[Cell; BOARD_HEIGHT]> {
-    let &Board(ref cols) = self;
+  // pub fn get_lines(&self) -> Vec<Vec<u8>> {
+  //   let &Board(ref cells) = self;
 
-    cols
-      .into_iter()
-      .filter(|col|
-        col.into_iter()
-        .any(|cell| cell.is_free())
-      )
-      .collect()
-  }
+  //   let cells.chunks(BOARD_WIDTH).collect()
+  // }
+
+  // pub fn get_available_columns(&self) -> Vec<[Cell; BOARD_HEIGHT]> {
+  //   let &Board(ref cols) = self;
+
+  //   cols
+  //     .into_iter()
+  //     .filter(|col|
+  //       col.into_iter()
+  //       .any(|cell| cell.is_free())
+  //     )
+  //     .collect()
+  // }
 }
