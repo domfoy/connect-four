@@ -4,3 +4,8 @@ version = "0.1.0"
 authors = ["lafaillette <quentin.pergeline@gmail.com>"]
 
 [dependencies]
+glium = "0.20.0"
+
+[[bin]]
+name = "gl"
+path = "src/bin/gl.rs"
