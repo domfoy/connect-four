@@ -3,8 +3,8 @@ use std::fmt;
 use super::colour::Colour;
 
 #[derive(Debug)]
-pub(in game) struct Cell {
-  colour: Option<Colour>
+pub(in super) struct Cell {
+  pub colour: Option<Colour>
 }
 
 impl fmt::Display for Cell{
